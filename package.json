@@ -1,13 +1,18 @@
 {
-  "name": "obsidian-sample-plugin",
-  "version": "0.12.0",
-  "description": "This is a sample plugin for Obsidian (https://obsidian.md)",
+  "name": "obsidian-code-plugin",
+  "version": "0.0.1",
+  "description": "Code hint, code snippet, execute code, format code, copy button and generate code pictures. (https://ob-code.zhanghe.cool)",
   "main": "main.js",
   "scripts": {
     "dev": "rollup --config rollup.config.js -w",
     "build": "rollup --config rollup.config.js --environment BUILD:production"
   },
-  "keywords": [],
+  "keywords": [
+    "code",
+    "snippet",
+    "hint",
+    "execute"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
