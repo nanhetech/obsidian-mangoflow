@@ -6,13 +6,26 @@ import {
   PluginSettingTab,
   Setting,
 } from 'obsidian';
+import { type } from 'os';
 
 interface MyPluginSettings {
   mySetting: string;
+  hint: boolean;
+  snippet: boolean;
+  execute: boolean;
+  format: boolean;
+  copy: boolean;
+  picture: boolean;
 }
 
 const DEFAULT_SETTINGS: MyPluginSettings = {
   mySetting: 'default',
+  hint: false,
+  snippet: false,
+  execute: false,
+  format: false,
+  copy: false,
+  picture: false,
 };
 
 export default class MyPlugin extends Plugin {
@@ -104,20 +117,30 @@ class SampleSettingTab extends PluginSettingTab {
 
     containerEl.empty();
 
-    containerEl.createEl('h2', { text: 'Settings for my awesome plugin.' });
+    containerEl.createEl('h2', { text: 'Settings for code plugin.' });
 
+    // new Setting(containerEl)
+    //   .setName('Setting #1')
+    //   .setDesc("It's a secret")
+    //   .addText((text) =>
+    //     text
+    //       .setPlaceholder('Enter your secret')
+    //       .setValue('')
+    //       .onChange(async (value) => {
+    //         console.log('Secret: ' + value);
+    //         this.plugin.settings.mySetting = value;
+    //         await this.plugin.saveSettings();
+    //       })
+    //   );
     new Setting(containerEl)
-      .setName('Setting #1')
-      .setDesc("It's a secret")
-      .addText((text) =>
-        text
-          .setPlaceholder('Enter your secret')
-          .setValue('')
-          .onChange(async (value) => {
-            console.log('Secret: ' + value);
-            this.plugin.settings.mySetting = value;
-            await this.plugin.saveSettings();
-          })
-      );
+      .setName('Code hint')
+      .setDesc('Code hint')
+      .addToggle((toggel) => {
+        toggel.setValue(false).onChange(async (value) => {
+          console.info('Toggle is ', value);
+          this.plugin.settings.hint = value;
+          await this.plugin.saveSettings();
+        });
+      });
   }
 }

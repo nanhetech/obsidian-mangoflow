@@ -1,6 +1,6 @@
 {
   "name": "obsidian-code-plugin",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "Code hint, code snippet, execute code, format code, copy button and generate code pictures. (https://ob-code.zhanghe.cool)",
   "main": "main.js",
   "scripts": {
